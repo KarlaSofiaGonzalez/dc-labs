@@ -2,8 +2,26 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func main() {
-	fmt.Println("Welcome to the jungle")
+
+	name := ""
+
+	for _, word := range os.Args[1:] {
+
+		name = fmt.Sprintf("%v %v", name, word)
+
+	}
+
+	if name == "" {
+
+		fmt.Println("Fatal Error")
+		return
+
+	}
+
+	fmt.Println("Hello", name, "Welcome to the jungle")
+
 }
