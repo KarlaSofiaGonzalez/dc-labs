@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"math"
 )
 
 type Point struct {
@@ -52,7 +53,13 @@ func getArea(points []Point) float64 {
 // getPerimeter gets the perimeter from a given array of connected points
 func getPerimeter(points []Point) float64 {
 	// Your code goes here
-	return 0.0
+	var perimeterShape float64 =0 
+	//Get all of the points and calculate the distance from one to another
+	for i := 0; i < len(points)-1; i++ {
+		perimeterShape +=  math.Sqrt(math.Pow((points[i+1].X-points[i].X),2) + math.Pow((points[i+1].Y-points[i].Y),2))
+	}
+	perimeterShape +=  math.Sqrt(math.Pow((points[len(points)-1].X-points[0].X),2) + math.Pow((points[len(points)-1].Y-points[0].Y),2))
+	return perimeterShape
 }
 
 // handler handles the web request and reponds it
