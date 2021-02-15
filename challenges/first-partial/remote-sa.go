@@ -47,7 +47,42 @@ func generatePoints(s string) ([]Point, error) {
 // getArea gets the area inside from a given shape
 func getArea(points []Point) float64 {
 	// Your code goes here
-	return 0.0
+	var caso =len(points)
+	var areaShape float64 =0
+
+	//Depending on the number of points the area that it will have
+	switch caso {
+    case 3:
+        for i := 0; i <1; i++ {
+          areaShape = 0.5*(math.Abs(float64(
+			  //Gaussian area formula for 3 coordinates
+			  ((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i].Y)-
+			  (points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i].X*points[i+2].Y)))))
+		}
+		fmt.Println(areaShape)
+
+	case 4:
+		for i := 0; i <1; i++ {
+			areaShape = 0.5*(math.Abs(float64(
+				//Gaussian area formula for 4 coordinates
+				((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+0].Y)-
+				(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i].X*points[i+3].Y)))))
+		}
+		fmt.Println(areaShape)
+
+	case 5:
+        for i := 0; i <1; i++ {
+			areaShape = 0.5*(math.Abs(float64(
+				//Gaussian area formula for 5 coordinates
+				((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+4].Y)+(points[i+4].X*points[i].Y)-
+				(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i+4].X*points[i+3].Y)-(points[i].X*points[i+4].Y)))))
+		}
+		fmt.Println(areaShape)
+
+  	}
+	return areaShape
+	
+	
 }
 
 // getPerimeter gets the perimeter from a given array of connected points
@@ -88,9 +123,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// Response construction
 	response := fmt.Sprintf("Welcome Friend to the Remote Shapes Analyzer\n")
 	response += fmt.Sprintf(" - Your figure has : [%v] vertices\n", len(vertices))
-	response += fmt.Sprintf(" - Vertices        : %v\n", vertices)
-	response += fmt.Sprintf(" - Perimeter       : %v\n", perimeter)
-	response += fmt.Sprintf(" - Area            : %v\n", area)
+	if len(vertices)>2{
+		response += fmt.Sprintf(" - Vertices        : %v\n", vertices)
+		response += fmt.Sprintf(" - Perimeter       : %v\n", perimeter)
+		response += fmt.Sprintf(" - Area            : %v\n", area)
+	}else{
+		response += fmt.Sprintf("ERROR - Your shape is not compliying with the minimum number of vertices.")
+	}
 
 	// Send response to client
 	fmt.Fprintf(w, response)
