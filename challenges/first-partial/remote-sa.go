@@ -52,32 +52,32 @@ func getArea(points []Point) float64 {
 
 	//Depending on the number of points the area that it will have
 	switch caso {
-    case 3:
-        for i := 0; i <1; i++ {
-          areaShape = 0.5*(math.Abs(float64(
-			  //Gaussian area formula for 3 coordinates
-			  ((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i].Y)-
-			  (points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i].X*points[i+2].Y)))))
-		}
-		fmt.Println(areaShape)
-
-	case 4:
-		for i := 0; i <1; i++ {
+		case 3:
+			for i := 0; i <1; i++ {
 			areaShape = 0.5*(math.Abs(float64(
-				//Gaussian area formula for 4 coordinates
-				((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+0].Y)-
-				(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i].X*points[i+3].Y)))))
-		}
-		fmt.Println(areaShape)
+				//Gaussian area formula for 3 coordinates
+				((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i].Y)-
+				(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i].X*points[i+2].Y)))))
+			}
+			fmt.Println(areaShape)
 
-	case 5:
-        for i := 0; i <1; i++ {
-			areaShape = 0.5*(math.Abs(float64(
-				//Gaussian area formula for 5 coordinates
-				((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+4].Y)+(points[i+4].X*points[i].Y)-
-				(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i+4].X*points[i+3].Y)-(points[i].X*points[i+4].Y)))))
-		}
-		fmt.Println(areaShape)
+		case 4:
+			for i := 0; i <1; i++ {
+				areaShape = 0.5*(math.Abs(float64(
+					//Gaussian area formula for 4 coordinates
+					((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+0].Y)-
+					(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i].X*points[i+3].Y)))))
+			}
+			fmt.Println(areaShape)
+
+		case 5:
+			for i := 0; i <1; i++ {
+				areaShape = 0.5*(math.Abs(float64(
+					//Gaussian area formula for 5 coordinates
+					((points[i].X*points[i+1].Y)+(points[i+1].X*points[i+2].Y)+(points[i+2].X*points[i+3].Y)+(points[i+3].X*points[i+4].Y)+(points[i+4].X*points[i].Y)-
+					(points[i+1].X*points[i].Y)-(points[i+2].X*points[i+1].Y)-(points[i+3].X*points[i+2].Y)-(points[i+4].X*points[i+3].Y)-(points[i].X*points[i+4].Y)))))
+			}
+			fmt.Println(areaShape)
 
   	}
 	return areaShape
