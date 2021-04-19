@@ -1,5 +1,6 @@
 # Architecture
 Karla Sofía González Rodríguez 0214774
+
 Saúl Eduardo Zepeda de la Torre 0214016
 
 ## Functions
@@ -10,12 +11,6 @@ Saúl Eduardo Zepeda de la Torre 0214016
 - **Main**: Endpoints are declared and the API runs.
 
 ## Diagram
-```mermaid
-graph LR
-A[Client] -- /signin --> B[Client]
-A[Client] -- /login--> B[Client]
-A[Client] -- /status --> B[Client]
-A[Client] -- /upload --> B[Client]
-A[Client] -- /logout --> B[Client]
-```
+[Check Diagram in this link](https://drive.google.com/file/d/1Z01sFOhfpURD9DTM8rOWnZFTfh_JlckK/view?usp=sharing)
+
 > We include a new endpoint "signin" to create users with their passwords
